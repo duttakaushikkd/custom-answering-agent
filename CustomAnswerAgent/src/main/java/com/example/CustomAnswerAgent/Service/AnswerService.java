@@ -12,10 +12,10 @@ public class AnswerService {
     @Autowired
     OpenAiConfig openAiConfig;
 
-    public String openAiService(){
+    public String openAiService(String question){
 
         ResponseCreateParams params = ResponseCreateParams.builder()
-                .input("Say this is a test")
+                .input(question)
                 .model("gpt-5-nano")
                 .build();
 
