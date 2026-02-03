@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CustomAnswerAgentApplication {
 
 	public static void main(String[] args) {
+
+		System.out.println("KEY=" + System.getenv("OPENAI_API_KEY"));
 		SpringApplication.run(CustomAnswerAgentApplication.class, args);
 	}
 
