@@ -24,8 +24,6 @@ public class AnswerService {
                 .responses()
                 .create(params);
 
-        String answer = response.output().toString();
-
-        return answer;
+        return response.output().toString();
     }
 }
