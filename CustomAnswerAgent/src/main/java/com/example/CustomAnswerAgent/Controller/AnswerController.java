@@ -1,6 +1,5 @@
 package com.example.CustomAnswerAgent.Controller;
 
-import com.example.CustomAnswerAgent.OpenaiConfig.OpenAiConfig;
 import com.example.CustomAnswerAgent.Service.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
