@@ -19,7 +19,13 @@ public class AnswerService {
                 .model("gpt-5-nano")
                 .build();
 
-        Response response = openAiConfig.getClient().responses().create(params);
-        return response.toString();
+        Response response = openAiConfig
+                .getClient()
+                .responses()
+                .create(params);
+
+        String answer = response.output().toString();
+
+        return answer;
     }
 }
