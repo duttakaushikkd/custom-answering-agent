@@ -16,7 +16,7 @@ public class AnswerService {
 
         ResponseCreateParams params = ResponseCreateParams.builder()
                 .input(question)
-                .model("gpt-5-nano")
+                .model(System.getenv("GPT_MODEL"))
                 .build();
 
         Response response = openAiConfig
