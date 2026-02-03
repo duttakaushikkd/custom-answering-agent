@@ -15,7 +15,7 @@ public class AnswerController {
 
     @GetMapping("/answer")
     public String getAnswer(String question){
-        return answerService.openAiService();
+        return answerService.openAiService(question);
     }
 
 
