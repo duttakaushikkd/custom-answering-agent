@@ -1,22 +1,26 @@
 package com.example.CustomAnswerAgent.Service;
 
 import com.example.CustomAnswerAgent.OpenaiConfig.OpenAiConfig;
-import com.openai.models.responses.Response;
-import com.openai.models.responses.ResponseCreateParams;
+import com.openai.models.responses.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class AnswerService {
 
     @Autowired
-    OpenAiConfig openAiConfig;
+    private OpenAiConfig openAiConfig;
 
-    public String openAiService(String question){
+    public String openAiService(String question) {
+
+        String combinedPrompt =
+                "SYSTEM:\n" + System.getenv("SYSTEM_PROMPT") + "\n\n" +
+                        "USER:\n" + question;
 
         ResponseCreateParams params = ResponseCreateParams.builder()
-                .input(question)
                 .model(System.getenv("GPT_MODEL"))
+                .input(combinedPrompt)
                 .build();
 
         Response response = openAiConfig
@@ -24,6 +28,6 @@ public class AnswerService {
                 .responses()
                 .create(params);
 
-        return response.output().toString();
+        return response.toString();
     }
 }
